@@ -63,6 +63,7 @@ This bot demonstrates many of the core features of Botkit:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+process.env.token = 'xoxb-39557624816-me5yuH74HqLY6jb0FgGL2QpJ';
 if (!process.env.token) {
     console.log('Error: Specify token in environment');
     process.exit(1);
@@ -189,11 +190,10 @@ controller.hears(['what is my name', 'who am i'], 'direct_message,direct_mention
 controller.hears([/\b(PRB|INT|TASK|CHG|STRY)\d{6,7}\b/g], 'ambient', function(bot,message) {
 var doorType = message.match[1]; //match[1] is the (.*) group. match[0] is the entire group (open the (.*) doors).
   for (var i =1; i<= message.match.length; i++) {
-      bot.reply(message, 'https://hi.service-now.com/textsearch.do?sysparm_search=' + message.match[i-1]);
+      bot.reply(message, 'https://hi.service-now.com/text_search_exact_match.do?sysparm_search=' + message.match[i-1]);
   }	
-
-
 });
+
 controller.hears(['shutdown'], 'direct_message,direct_mention,mention', function(bot, message) {
 
     bot.startConversation(message, function(err, convo) {
