@@ -7,7 +7,7 @@
 
 
 This is a sample Slack bot built with Botkit.
-
+#
 This bot demonstrates many of the core features of Botkit:
 
 * Connect to Slack using the real time API
